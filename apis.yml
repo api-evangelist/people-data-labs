@@ -7,10 +7,9 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - People Data
-  - Identity Resolution
   - B2B
-  - API
+  - Identity Resolution
+  - People Data
 url: >-
   https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -25,9 +24,9 @@ apis:
     humanURL: https://www.peopledatalabs.com/
     baseURL: https://api.peopledatalabs.com/v5
     tags:
-      - People Data
-      - Identity Resolution
       - B2B
+      - Identity Resolution
+      - People Data
     properties:
       - type: Documentation
         url: https://docs.peopledatalabs.com/
