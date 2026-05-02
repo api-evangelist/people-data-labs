@@ -11,24 +11,26 @@ People Data Labs provides a people data API for enriching and building people pr
 
 ## Tags:
 
- - People Data, Identity Resolution, B2B, API
+ - People Data, Identity Resolution, B2B, Company Data, Enrichment
 
 ## Timestamps
 
 - **Created:** 2026-03-16 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
 ### People Data Labs API
-People enrichment and identity resolution API for building B2B applications with professional profile data.
+People enrichment and identity resolution API for building B2B applications with professional profile data, including person enrichment, person search, person identify, company enrichment, company search, IP enrichment, and job posting search.
 
 **Human URL:** [https://www.peopledatalabs.com/](https://www.peopledatalabs.com/)
+
+**Base URL:** `https://api.peopledatalabs.com/v5`
 
 
 #### Tags:
 
- - People Data, Identity Resolution, B2B
+ - People Data, Identity Resolution, B2B, Company Data, Enrichment
 
 #### Properties
 
@@ -36,6 +38,7 @@ People enrichment and identity resolution API for building B2B applications with
 - [Getting Started](https://docs.peopledatalabs.com/docs/quickstart)
 - [Reference](https://docs.peopledatalabs.com/reference)
 - [Authentication](https://docs.peopledatalabs.com/docs/authentication)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml)
 
 ## Common Properties
 
