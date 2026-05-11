@@ -64,6 +64,23 @@ common:
     url: https://status.peopledatalabs.com/
   - type: Website
     url: https://www.peopledatalabs.com/
+  - type: Integrations
+    url: https://www.peopledatalabs.com/data-lab/integrations
+integrations:
+  - name: PDL
+  - name: Your data destination
+  - name: Sparkle
+  - name: Privacy Choice
+  - name: Medium
+  - name: Youtube
+  - name: LinkedIn
+  - name: header img
+  - name: Ping Identity
+  - name: Zapier
+  - name: Snowflake
+  - name: Bouncer
+  - name: Databricks
+  - name: Salesforce
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
