@@ -1,0 +1,262 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: People Data Labs API — Person
+  description: 'People Data Labs API — Person. 4 operations. Lead operation: Bulk person enrichment. Self-contained Naftiko
+    capability covering one People Data Labs business surface.'
+  tags:
+  - People Data Labs
+  - Person
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLE_DATA_LABS_API_KEY: PEOPLE_DATA_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: people-data-labs-person
+    baseUri: https://api.peopledatalabs.com/v5
+    description: People Data Labs API — Person business capability. Self-contained, no shared references.
+    resources:
+    - name: person-bulk
+      path: /person/bulk
+      operations:
+      - name: post
+        method: POST
+        description: Bulk person enrichment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: person-enrich
+      path: /person/enrich
+      operations:
+      - name: get
+        method: GET
+        description: Enrich a person profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: email
+          in: query
+          type: string
+        - name: phone
+          in: query
+          type: string
+        - name: profile
+          in: query
+          type: string
+        - name: first_name
+          in: query
+          type: string
+        - name: last_name
+          in: query
+          type: string
+        - name: company
+          in: query
+          type: string
+        - name: min_likelihood
+          in: query
+          type: integer
+    - name: person-identify
+      path: /person/identify
+      operations:
+      - name: get
+        method: GET
+        description: Identify a person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: email
+          in: query
+          type: string
+        - name: phone
+          in: query
+          type: string
+        - name: first_name
+          in: query
+          type: string
+        - name: last_name
+          in: query
+          type: string
+    - name: person-search
+      path: /person/search
+      operations:
+      - name: get
+        method: GET
+        description: Search for person profiles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sql
+          in: query
+          type: string
+        - name: query
+          in: query
+          type: string
+        - name: size
+          in: query
+          type: integer
+        - name: from
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.PEOPLE_DATA_LABS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: people-data-labs-person-rest
+    port: 8080
+    description: REST adapter for People Data Labs API — Person. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/person/bulk
+      name: person-bulk
+      description: REST surface for person-bulk.
+      operations:
+      - method: POST
+        name: post
+        description: Bulk person enrichment
+        call: people-data-labs-person.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/person/enrich
+      name: person-enrich
+      description: REST surface for person-enrich.
+      operations:
+      - method: GET
+        name: get
+        description: Enrich a person profile
+        call: people-data-labs-person.get
+        with:
+          email: rest.email
+          phone: rest.phone
+          profile: rest.profile
+          first_name: rest.first_name
+          last_name: rest.last_name
+          company: rest.company
+          min_likelihood: rest.min_likelihood
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/person/identify
+      name: person-identify
+      description: REST surface for person-identify.
+      operations:
+      - method: GET
+        name: get
+        description: Identify a person
+        call: people-data-labs-person.get
+        with:
+          email: rest.email
+          phone: rest.phone
+          first_name: rest.first_name
+          last_name: rest.last_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/person/search
+      name: person-search
+      description: REST surface for person-search.
+      operations:
+      - method: GET
+        name: get
+        description: Search for person profiles
+        call: people-data-labs-person.get
+        with:
+          sql: rest.sql
+          query: rest.query
+          size: rest.size
+          from: rest.from
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: people-data-labs-person-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for People Data Labs API — Person. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: bulk-person-enrichment
+      description: Bulk person enrichment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: people-data-labs-person.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enrich-person-profile
+      description: Enrich a person profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-data-labs-person.get
+      with:
+        email: tools.email
+        phone: tools.phone
+        profile: tools.profile
+        first_name: tools.first_name
+        last_name: tools.last_name
+        company: tools.company
+        min_likelihood: tools.min_likelihood
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: identify-person
+      description: Identify a person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-data-labs-person.get
+      with:
+        email: tools.email
+        phone: tools.phone
+        first_name: tools.first_name
+        last_name: tools.last_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-person-profiles
+      description: Search for person profiles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-data-labs-person.get
+      with:
+        sql: tools.sql
+        query: tools.query
+        size: tools.size
+        from: tools.from
+      outputParameters:
+      - type: object
+        mapping: $.

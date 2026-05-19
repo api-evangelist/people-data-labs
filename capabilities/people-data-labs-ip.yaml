@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: People Data Labs API — IP
+  description: 'People Data Labs API — IP. 1 operations. Lead operation: IP enrichment. Self-contained Naftiko capability
+    covering one People Data Labs business surface.'
+  tags:
+  - People Data Labs
+  - IP
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLE_DATA_LABS_API_KEY: PEOPLE_DATA_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: people-data-labs-ip
+    baseUri: https://api.peopledatalabs.com/v5
+    description: People Data Labs API — IP business capability. Self-contained, no shared references.
+    resources:
+    - name: ip-enrich
+      path: /ip/enrich
+      operations:
+      - name: get
+        method: GET
+        description: IP enrichment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ip
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.PEOPLE_DATA_LABS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: people-data-labs-ip-rest
+    port: 8080
+    description: REST adapter for People Data Labs API — IP. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/ip/enrich
+      name: ip-enrich
+      description: REST surface for ip-enrich.
+      operations:
+      - method: GET
+        name: get
+        description: IP enrichment
+        call: people-data-labs-ip.get
+        with:
+          ip: rest.ip
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: people-data-labs-ip-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for People Data Labs API — IP. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: ip-enrichment
+      description: IP enrichment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-data-labs-ip.get
+      with:
+        ip: tools.ip
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: People Data Labs API — Autocomplete
+  description: 'People Data Labs API — Autocomplete. 1 operations. Lead operation: Autocomplete suggestions. Self-contained
+    Naftiko capability covering one People Data Labs business surface.'
+  tags:
+  - People Data Labs
+  - Autocomplete
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLE_DATA_LABS_API_KEY: PEOPLE_DATA_LABS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: people-data-labs-autocomplete
+    baseUri: https://api.peopledatalabs.com/v5
+    description: People Data Labs API — Autocomplete business capability. Self-contained, no shared references.
+    resources:
+    - name: autocomplete
+      path: /autocomplete
+      operations:
+      - name: get
+        method: GET
+        description: Autocomplete suggestions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: field
+          in: query
+          type: string
+          required: true
+        - name: text
+          in: query
+          type: string
+        - name: size
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.PEOPLE_DATA_LABS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: people-data-labs-autocomplete-rest
+    port: 8080
+    description: REST adapter for People Data Labs API — Autocomplete. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/autocomplete
+      name: autocomplete
+      description: REST surface for autocomplete.
+      operations:
+      - method: GET
+        name: get
+        description: Autocomplete suggestions
+        call: people-data-labs-autocomplete.get
+        with:
+          field: rest.field
+          text: rest.text
+          size: rest.size
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: people-data-labs-autocomplete-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for People Data Labs API — Autocomplete. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: autocomplete-suggestions
+      description: Autocomplete suggestions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: people-data-labs-autocomplete.get
+      with:
+        field: tools.field
+        text: tools.text
+        size: tools.size
+      outputParameters:
+      - type: object
+        mapping: $.
