@@ -5,88 +5,90 @@ description: People Data Labs provides a people data API for enriching and build
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- B2B
-- Identity Resolution
-- People Data
+  - B2B
+  - Identity Resolution
+  - People Data
 url: https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: people-data-labs:people-data-labs
-  name: People Data Labs API
-  description: People enrichment and identity resolution API for building B2B applications with professional profile data,
-    including person enrichment, person search, person identify, company enrichment, company search, IP enrichment, and job
-    posting search.
-  humanURL: https://www.peopledatalabs.com/
-  baseURL: https://api.peopledatalabs.com/v5
-  tags:
-  - B2B
-  - Identity Resolution
-  - People Data
-  - Company Data
-  - Enrichment
-  properties:
+  - aid: people-data-labs:people-data-labs
+    name: People Data Labs API
+    description: People enrichment and identity resolution API for building B2B applications with professional profile data,
+      including person enrichment, person search, person identify, company enrichment, company search, IP enrichment, and job
+      posting search.
+    humanURL: https://www.peopledatalabs.com/
+    baseURL: https://api.peopledatalabs.com/v5
+    tags:
+    - B2B
+    - Identity Resolution
+    - People Data
+    - Company Data
+    - Enrichment
+    properties:
+    - type: Documentation
+      url: https://docs.peopledatalabs.com/
+    - type: GettingStarted
+      url: https://docs.peopledatalabs.com/docs/quickstart
+    - type: Reference
+      url: https://docs.peopledatalabs.com/reference
+    - type: Authentication
+      url: https://docs.peopledatalabs.com/docs/authentication
+    - type: OpenAPI
+      url: https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
+    - type: NaftikoCapability
+      url: capabilities/people-data-labs-autocomplete.yaml
+    - type: NaftikoCapability
+      url: capabilities/people-data-labs-company.yaml
+    - type: NaftikoCapability
+      url: capabilities/people-data-labs-ip.yaml
+    - type: NaftikoCapability
+      url: capabilities/people-data-labs-jobs.yaml
+    - type: NaftikoCapability
+      url: capabilities/people-data-labs-person.yaml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/peopledatalabs
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/peopledatalabs
+  - type: Portal
+    url: https://www.peopledatalabs.com/
   - type: Documentation
     url: https://docs.peopledatalabs.com/
-  - type: GettingStarted
-    url: https://docs.peopledatalabs.com/docs/quickstart
-  - type: Reference
-    url: https://docs.peopledatalabs.com/reference
-  - type: Authentication
-    url: https://docs.peopledatalabs.com/docs/authentication
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/people-data-labs-autocomplete.yaml
-  - type: NaftikoCapability
-    url: capabilities/people-data-labs-company.yaml
-  - type: NaftikoCapability
-    url: capabilities/people-data-labs-ip.yaml
-  - type: NaftikoCapability
-    url: capabilities/people-data-labs-jobs.yaml
-  - type: NaftikoCapability
-    url: capabilities/people-data-labs-person.yaml
-common:
-- type: LinkedIn
-  url: https://www.linkedin.com/company/peopledatalabs
-- type: Portal
-  url: https://www.peopledatalabs.com/
-- type: Documentation
-  url: https://docs.peopledatalabs.com/
-- type: SignUp
-  url: https://dashboard.peopledatalabs.com/signup
-- type: Login
-  url: https://dashboard.peopledatalabs.com/login
-- type: Pricing
-  url: https://www.peopledatalabs.com/pricing
-- type: TermsOfService
-  url: https://www.peopledatalabs.com/terms-of-service
-- type: PrivacyPolicy
-  url: https://www.peopledatalabs.com/privacy-policy
-- type: Support
-  url: https://docs.peopledatalabs.com/docs/support
-- type: StatusPage
-  url: https://status.peopledatalabs.com/
-- type: Website
-  url: https://www.peopledatalabs.com/
-- type: Integrations
-  url: https://www.peopledatalabs.com/data-lab/integrations
+  - type: SignUp
+    url: https://dashboard.peopledatalabs.com/signup
+  - type: Login
+    url: https://dashboard.peopledatalabs.com/login
+  - type: Pricing
+    url: https://www.peopledatalabs.com/pricing
+  - type: TermsOfService
+    url: https://www.peopledatalabs.com/terms-of-service
+  - type: PrivacyPolicy
+    url: https://www.peopledatalabs.com/privacy-policy
+  - type: Support
+    url: https://docs.peopledatalabs.com/docs/support
+  - type: StatusPage
+    url: https://status.peopledatalabs.com/
+  - type: Website
+    url: https://www.peopledatalabs.com/
+  - type: Integrations
+    url: https://www.peopledatalabs.com/data-lab/integrations
 integrations:
-- name: PDL
-- name: Your data destination
-- name: Sparkle
-- name: Privacy Choice
-- name: Medium
-- name: Youtube
-- name: LinkedIn
-- name: header img
-- name: Ping Identity
-- name: Zapier
-- name: Snowflake
-- name: Bouncer
-- name: Databricks
-- name: Salesforce
+  - name: PDL
+  - name: Your data destination
+  - name: Sparkle
+  - name: Privacy Choice
+  - name: Medium
+  - name: Youtube
+  - name: LinkedIn
+  - name: header img
+  - name: Ping Identity
+  - name: Zapier
+  - name: Snowflake
+  - name: Bouncer
+  - name: Databricks
+  - name: Salesforce
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
