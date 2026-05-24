@@ -74,6 +74,8 @@ common:
     url: https://www.peopledatalabs.com/
   - type: Integrations
     url: https://www.peopledatalabs.com/data-lab/integrations
+  - type: LLMsTxt
+    url: https://docs.peopledatalabs.com/llms.txt
 integrations:
   - name: PDL
   - name: Your data destination
