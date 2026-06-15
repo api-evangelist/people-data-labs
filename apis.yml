@@ -1,6 +1,7 @@
 aid: people-data-labs
 name: People Data Labs
-description: People Data Labs provides a people data API for enriching and building people profiles at scale. The API provides
+description: >-
+  People Data Labs provides a people data API for enriching and building people profiles at scale. The API provides
   access to professional profiles, company data, and identity resolution for B2B applications.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -15,38 +16,30 @@ specificationVersion: '0.19'
 apis:
   - aid: people-data-labs:people-data-labs
     name: People Data Labs API
-    description: People enrichment and identity resolution API for building B2B applications with professional profile data,
-      including person enrichment, person search, person identify, company enrichment, company search, IP enrichment, and job
-      posting search.
+    description: >-
+      People enrichment and identity resolution API for building B2B applications with professional profile data,
+      including person enrichment, person search, person identify, company enrichment, company search, IP enrichment,
+      and job posting search.
     humanURL: https://www.peopledatalabs.com/
     baseURL: https://api.peopledatalabs.com/v5
     tags:
-    - B2B
-    - Identity Resolution
-    - People Data
-    - Company Data
-    - Enrichment
+      - B2B
+      - Identity Resolution
+      - People Data
+      - Company Data
+      - Enrichment
     properties:
-    - type: Documentation
-      url: https://docs.peopledatalabs.com/
-    - type: GettingStarted
-      url: https://docs.peopledatalabs.com/docs/quickstart
-    - type: Reference
-      url: https://docs.peopledatalabs.com/reference
-    - type: Authentication
-      url: https://docs.peopledatalabs.com/docs/authentication
-    - type: OpenAPI
-      url: https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/people-data-labs-autocomplete.yaml
-    - type: NaftikoCapability
-      url: capabilities/people-data-labs-company.yaml
-    - type: NaftikoCapability
-      url: capabilities/people-data-labs-ip.yaml
-    - type: NaftikoCapability
-      url: capabilities/people-data-labs-jobs.yaml
-    - type: NaftikoCapability
-      url: capabilities/people-data-labs-person.yaml
+      - type: Documentation
+        url: https://docs.peopledatalabs.com/
+      - type: GettingStarted
+        url: https://docs.peopledatalabs.com/docs/quickstart
+      - type: Reference
+        url: https://docs.peopledatalabs.com/reference
+      - type: Authentication
+        url: https://docs.peopledatalabs.com/docs/authentication
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/peopledatalabs
