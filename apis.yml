@@ -49,7 +49,7 @@ common:
     url: https://www.peopledatalabs.com/
   - type: Documentation
     url: https://docs.peopledatalabs.com/
-  - type: SignUp
+  - type: Signup
     url: https://dashboard.peopledatalabs.com/signup
   - type: Login
     url: https://dashboard.peopledatalabs.com/login
@@ -67,7 +67,7 @@ common:
     url: https://www.peopledatalabs.com/
   - type: Integrations
     url: https://www.peopledatalabs.com/data-lab/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.peopledatalabs.com/llms.txt
 integrations:
   - name: PDL
