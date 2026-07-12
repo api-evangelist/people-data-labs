@@ -41,6 +41,12 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
 common:
+  - type: TrustCenter
+    url: security/people-data-labs-trust-center.yml
+  - type: DomainSecurity
+    url: security/people-data-labs-domain-security.yml
+  - type: Authentication
+    url: authentication/people-data-labs-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/peopledatalabs
   - type: LinkedIn
