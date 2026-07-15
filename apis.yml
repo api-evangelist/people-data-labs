@@ -41,6 +41,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/people-data-labs-agentic-access.yml
   - type: TrustCenter
     url: security/people-data-labs-trust-center.yml
   - type: DomainSecurity
