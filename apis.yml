@@ -4,7 +4,20 @@ description: >-
   People Data Labs provides a people data API for enriching and building people profiles at scale. The API provides
   access to professional profiles, company data, and identity resolution for B2B applications.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/people-data-labs.png
 tags:
   - B2B
   - Identity Resolution
@@ -14,32 +27,96 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: people-data-labs:people-data-labs
-    name: People Data Labs API
-    description: >-
-      People enrichment and identity resolution API for building B2B applications with professional profile data,
-      including person enrichment, person search, person identify, company enrichment, company search, IP enrichment,
-      and job posting search.
-    humanURL: https://www.peopledatalabs.com/
-    baseURL: https://api.peopledatalabs.com/v5
-    tags:
-      - B2B
-      - Identity Resolution
-      - People Data
-      - Company Data
-      - Enrichment
-    properties:
-      - type: Documentation
-        url: https://docs.peopledatalabs.com/
-      - type: GettingStarted
-        url: https://docs.peopledatalabs.com/docs/quickstart
-      - type: Reference
-        url: https://docs.peopledatalabs.com/reference
-      - type: Authentication
-        url: https://docs.peopledatalabs.com/docs/authentication
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/people-data-labs/refs/heads/main/openapi/people-data-labs-openapi.yml
+- aid: people-data-labs:people-data-labs-autocomplete-api
+  name: People Data Labs Autocomplete API
+  description: Autocomplete suggestions for fields like skills and titles.
+  humanURL: https://www.peopledatalabs.com/
+  baseURL: https://api.peopledatalabs.com/v5
+  tags:
+  - Autocomplete
+  properties:
+  - type: OpenAPI
+    url: openapi/people-data-labs-autocomplete-api-openapi.yml
+  - type: Documentation
+    url: https://docs.peopledatalabs.com/
+  - type: GettingStarted
+    url: https://docs.peopledatalabs.com/docs/quickstart
+  - type: Reference
+    url: https://docs.peopledatalabs.com/reference
+  - type: Authentication
+    url: https://docs.peopledatalabs.com/docs/authentication
+- aid: people-data-labs:people-data-labs-company-api
+  name: People Data Labs Company API
+  description: Company enrichment and search operations.
+  humanURL: https://www.peopledatalabs.com/
+  baseURL: https://api.peopledatalabs.com/v5
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/people-data-labs-company-api-openapi.yml
+  - type: Documentation
+    url: https://docs.peopledatalabs.com/
+  - type: GettingStarted
+    url: https://docs.peopledatalabs.com/docs/quickstart
+  - type: Reference
+    url: https://docs.peopledatalabs.com/reference
+  - type: Authentication
+    url: https://docs.peopledatalabs.com/docs/authentication
+- aid: people-data-labs:people-data-labs-ip-api
+  name: People Data Labs IP API
+  description: IP-based enrichment operations.
+  humanURL: https://www.peopledatalabs.com/
+  baseURL: https://api.peopledatalabs.com/v5
+  tags:
+  - IP
+  properties:
+  - type: OpenAPI
+    url: openapi/people-data-labs-ip-api-openapi.yml
+  - type: Documentation
+    url: https://docs.peopledatalabs.com/
+  - type: GettingStarted
+    url: https://docs.peopledatalabs.com/docs/quickstart
+  - type: Reference
+    url: https://docs.peopledatalabs.com/reference
+  - type: Authentication
+    url: https://docs.peopledatalabs.com/docs/authentication
+- aid: people-data-labs:people-data-labs-jobs-api
+  name: People Data Labs Jobs API
+  description: Job posting search operations.
+  humanURL: https://www.peopledatalabs.com/
+  baseURL: https://api.peopledatalabs.com/v5
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/people-data-labs-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.peopledatalabs.com/
+  - type: GettingStarted
+    url: https://docs.peopledatalabs.com/docs/quickstart
+  - type: Reference
+    url: https://docs.peopledatalabs.com/reference
+  - type: Authentication
+    url: https://docs.peopledatalabs.com/docs/authentication
+- aid: people-data-labs:people-data-labs-person-api
+  name: People Data Labs Person API
+  description: Person enrichment, search, and identification operations.
+  humanURL: https://www.peopledatalabs.com/
+  baseURL: https://api.peopledatalabs.com/v5
+  tags:
+  - Person
+  properties:
+  - type: OpenAPI
+    url: openapi/people-data-labs-person-api-openapi.yml
+  - type: Documentation
+    url: https://docs.peopledatalabs.com/
+  - type: GettingStarted
+    url: https://docs.peopledatalabs.com/docs/quickstart
+  - type: Reference
+    url: https://docs.peopledatalabs.com/reference
+  - type: Authentication
+    url: https://docs.peopledatalabs.com/docs/authentication
 common:
   - type: AgenticAccess
     url: agentic-access/people-data-labs-agentic-access.yml
