@@ -1,0 +1,22 @@
+{
+  "provider": "people-data-labs",
+  "sources": [
+    "people-data-labs-autocomplete-api-openapi.yml",
+    "people-data-labs-company-api-openapi.yml",
+    "people-data-labs-ip-api-openapi.yml",
+    "people-data-labs-jobs-api-openapi.yml",
+    "people-data-labs-person-api-openapi.yml"
+  ],
+  "outputs": [
+    "people-data-labs-autocomplete-api-openapi.yml",
+    "people-data-labs-company-api-openapi.yml",
+    "people-data-labs-ip-api-openapi.yml",
+    "people-data-labs-jobs-api-openapi.yml",
+    "people-data-labs-person-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
